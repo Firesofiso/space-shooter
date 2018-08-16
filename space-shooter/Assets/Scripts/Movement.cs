@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movement : MonoBehaviour {
+public class Movement : MonoBehaviour {
 
-    public float rotationSpeed = 1;
-    public float accelerationCoef = 1;
-    private Vector3 currentVelocity = new Vector2();
+    public float RotationSpeed = 1;
+    public float AccelerationCoef = 1;
+    public float MaxSpeed = 100;
+    private Vector3 CurrentVelocity = new Vector2();
 
 	// Use this for initialization
 	void Start () {
@@ -17,15 +18,24 @@ public class movement : MonoBehaviour {
 	void Update () {
         // Rotation stuff
         float rotation = Input.GetAxis("Rotation");
-        transform.Rotate(0, rotationSpeed * rotation, 0);
+        transform.Rotate(0, RotationSpeed * rotation, 0);
 
         // Forward movement stuff
         float fowardAxis = Input.GetAxis("Forward Momentum");
-        Vector3 accelerationVect = transform.forward * fowardAxis * accelerationCoef;
+        Vector3 accelerationVect = transform.forward * fowardAxis * AccelerationCoef;
         float deltaT = Time.deltaTime; // This might not be the right time property.
         
-        currentVelocity += accelerationVect * Time.deltaTime;
-        Vector3 displacementVect = currentVelocity * Time.deltaTime;
+        CurrentVelocity += accelerationVect * Time.deltaTime;
+        CapVelocity();
+        Vector3 displacementVect = CurrentVelocity * Time.deltaTime;
         transform.Translate(displacementVect, Space.World);
 	}
+
+    private void CapVelocity()
+    {
+        if (CurrentVelocity.sqrMagnitude > MaxSpeed * MaxSpeed)
+        {
+            CurrentVelocity = CurrentVelocity.normalized * MaxSpeed;
+        }
+    }
 }
