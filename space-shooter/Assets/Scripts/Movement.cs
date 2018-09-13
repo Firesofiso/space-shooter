@@ -4,38 +4,37 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
 
-    public float RotationSpeed = 1;
-    public float AccelerationCoef = 1;
-    public float MaxSpeed = 100;
-    private Vector3 CurrentVelocity = new Vector2();
+    public float rotationSpeed = 1;
+    public float accelerationCoef = 1;
+    private Vector3 currentVelocity = new Vector2();
+
+    private ParticleSystem flame, jet;
 
 	// Use this for initialization
 	void Start () {
-        
-	}
+        flame = transform.GetChild(0).GetComponent<ParticleSystem>();
+        jet = transform.GetChild(1).GetComponent<ParticleSystem>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
         // Rotation stuff
         float rotation = Input.GetAxis("Rotation");
-        transform.Rotate(0, RotationSpeed * rotation, 0);
+        transform.Rotate(0, rotationSpeed * rotation, 0);
 
         // Forward movement stuff
-        float fowardAxis = Input.GetAxis("Forward Momentum");
-        Vector3 accelerationVect = transform.forward * fowardAxis * AccelerationCoef;
+        float forwardAxis = Input.GetAxis("Forward Momentum");
+        Vector3 accelerationVect = transform.forward * forwardAxis * accelerationCoef;
         float deltaT = Time.deltaTime; // This might not be the right time property.
         
-        CurrentVelocity += accelerationVect * Time.deltaTime;
-        CapVelocity();
-        Vector3 displacementVect = CurrentVelocity * Time.deltaTime;
+        currentVelocity += accelerationVect * Time.deltaTime;
+        Vector3 displacementVect = currentVelocity * Time.deltaTime;
         transform.Translate(displacementVect, Space.World);
-	}
 
-    private void CapVelocity()
-    {
-        if (CurrentVelocity.sqrMagnitude > MaxSpeed * MaxSpeed)
-        {
-            CurrentVelocity = CurrentVelocity.normalized * MaxSpeed;
-        }
+        // Increase the size of the flames based of forwardAxis
+        ParticleSystem.MainModule flameMain = flame.main;
+        flameMain.startSize = (forwardAxis/2);
+        ParticleSystem.MainModule jetMain = jet.main;
+        jetMain.startSize = (forwardAxis/2) + 0.15f;
     }
 }
