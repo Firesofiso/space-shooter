@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movement : MonoBehaviour {
+public class Movement : MonoBehaviour {
 
     public float rotationSpeed = 1;
     public float accelerationCoef = 1;

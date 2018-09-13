@@ -9553,11 +9553,6 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 114505034080073458, guid: f39803cef52e24f449c87f9686cf9f0d,
-        type: 2}
-      propertyPath: accelerationCoef
-      value: 2.52
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f39803cef52e24f449c87f9686cf9f0d, type: 2}
   m_IsPrefabAsset: 0
