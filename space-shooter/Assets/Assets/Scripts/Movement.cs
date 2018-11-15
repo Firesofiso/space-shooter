@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour {
 
     public float rotationSpeed = 1;
     public float accelerationCoef = 1;
+    public float maxSpeed = 10;
     private Vector3 currentVelocity = new Vector2();
 
     private ParticleSystem flame, jet;
@@ -28,6 +29,8 @@ public class Movement : MonoBehaviour {
         float deltaT = Time.deltaTime; // This might not be the right time property.
         
         currentVelocity += accelerationVect * Time.deltaTime;
+        // Cap the velocity to the max speed
+        currentVelocity = Mathf.Min(currentVelocity.magnitude, this.maxSpeed) * currentVelocity.normalized;
         Vector3 displacementVect = currentVelocity * Time.deltaTime;
         transform.Translate(displacementVect, Space.World);
 
