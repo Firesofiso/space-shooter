@@ -27,5 +27,13 @@ public class DestroyOnContact : MonoBehaviour {
             // Here is where we reset the scene.
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        if (other.tag == "Bullet")
+        {
+            // Destroy the bullet and the asteroid.
+            // TODO: Make smaller asteroids spawn.
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }
