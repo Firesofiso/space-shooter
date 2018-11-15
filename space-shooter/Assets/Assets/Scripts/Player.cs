@@ -16,7 +16,8 @@ public class Player : MonoBehaviour {
 	void Update () {
         if (Input.GetButtonDown("Fire1"))
         {
-            Instantiate(bullet, bulletContainer.transform, false);
+            // Instantiate(bullet, bulletContainer.transform, true);
+            Instantiate(bullet, gun.transform.position, transform.rotation, bulletContainer.transform);
         }
 	}
 }
