@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 136385544549569880}
   - component: {fileID: 114457656308691220}
   - component: {fileID: 114564919240002818}
+  - component: {fileID: 114658916010484390}
   m_Layer: 0
   m_Name: Done_Bolt
   m_TagString: Untagged
@@ -154,6 +155,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4bf9a3e95194a46828da5f95c7f480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114658916010484390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1778303328487320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836c7e1ed938d2e40bb42710e3bb8360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetimeInSeconds: 5
 --- !u!136 &136385544549569880
 CapsuleCollider:
   m_ObjectHideFlags: 1
