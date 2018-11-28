@@ -32,12 +32,13 @@ public class DestroyOnContact : MonoBehaviour {
 
         if (other.tag == "Bullet")
         {
+            // Spawn the new asteroids.
+            // TODO: Adjust the size of the new asteroids.
             for (int i = 0; i < asteroidSplitFactor; i++)
             {
                 Instantiate(gameObject);
             }
             // Destroy the bullet and the asteroid.
-            // TODO: Make smaller asteroids spawn.
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
