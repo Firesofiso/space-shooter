@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class DestroyOnContact : MonoBehaviour {
 
+    public const int asteroidSplitFactor = 3;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -30,6 +32,10 @@ public class DestroyOnContact : MonoBehaviour {
 
         if (other.tag == "Bullet")
         {
+            for (int i = 0; i < asteroidSplitFactor; i++)
+            {
+                Instantiate(gameObject);
+            }
             // Destroy the bullet and the asteroid.
             // TODO: Make smaller asteroids spawn.
             Destroy(other.gameObject);
