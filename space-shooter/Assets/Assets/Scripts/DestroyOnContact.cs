@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class DestroyOnContact : MonoBehaviour {
 
     public const int asteroidSplitFactor = 3;
+	private UIScript scoreManager;
 
 	// Use this for initialization
 	void Start () {
-		
+		scoreManager = GameObject.Find("UI").GetComponent<UIScript>();
 	}
 	
 	// Update is called once per frame
@@ -46,7 +47,8 @@ public class DestroyOnContact : MonoBehaviour {
             }
             // Destroy the bullet and the asteroid.
             Destroy(other.gameObject);
-            Destroy(gameObject);
+			scoreManager.score += 5; // Score Points
+			Destroy(gameObject);
         }
     }
 }
