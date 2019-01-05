@@ -30,7 +30,13 @@ public class DestroyOnContact : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        if (other.tag == "Bullet")
+		if (other.tag == "Shield" && tag == "Enemy")
+		{
+			// Destroy the asteroid!
+			Destroy(gameObject);
+		}
+
+		if (other.tag == "Bullet")
         {
             // Spawn the new asteroids.
             // TODO: Adjust the size of the new asteroids.
