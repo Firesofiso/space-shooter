@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DestroyOnContact : MonoBehaviour {
+public class DestroyOnContact : MonoBehaviour
+{
 
     public const int asteroidSplitFactor = 3;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -34,9 +37,14 @@ public class DestroyOnContact : MonoBehaviour {
         {
             // Spawn the new asteroids.
             // TODO: Adjust the size of the new asteroids.
-            for (int i = 0; i < asteroidSplitFactor; i++)
+            Asteroid asteroidHit = gameObject.GetComponent<Asteroid>();
+            if (asteroidHit.Size > AsteroidSizeClass.Small)
             {
-                Instantiate(gameObject);
+                for (int i = 0; i < asteroidSplitFactor; i++)
+                {
+                    GameObject childAsteroid = Instantiate(gameObject);
+                    childAsteroid.GetComponent<Asteroid>().SetSizeFromParent(asteroidHit);
+                }
             }
             // Destroy the bullet and the asteroid.
             Destroy(other.gameObject);
