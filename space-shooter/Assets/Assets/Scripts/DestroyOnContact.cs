@@ -7,18 +7,17 @@ public class DestroyOnContact : MonoBehaviour
 {
 
     public const int asteroidSplitFactor = 3;
+	private UIScript scoreManager;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+	// Use this for initialization
+	void Start () {
+		scoreManager = GameObject.Find("UI").GetComponent<UIScript>();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 
     public void OnTriggerEnter(Collider other)
     {
@@ -33,7 +32,13 @@ public class DestroyOnContact : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        if (other.tag == "Bullet")
+		if (other.tag == "Shield" && tag == "Enemy")
+		{
+			// Destroy the asteroid!
+			Destroy(gameObject);
+		}
+
+		if (other.tag == "Bullet")
         {
             // Spawn the new asteroids.
             // TODO: Adjust the size of the new asteroids.
@@ -48,7 +53,8 @@ public class DestroyOnContact : MonoBehaviour
             }
             // Destroy the bullet and the asteroid.
             Destroy(other.gameObject);
-            Destroy(gameObject);
+			scoreManager.score += 5; // Score Points
+			Destroy(gameObject);
         }
     }
 }
