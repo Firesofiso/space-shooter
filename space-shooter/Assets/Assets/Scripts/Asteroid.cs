@@ -13,6 +13,7 @@ public enum AsteroidSizeClass
 public class Asteroid : MonoBehaviour {
 
     public AsteroidSizeClass Size = AsteroidSizeClass.Large;
+    public float ScaleFactor = 0.3f;
 
     /// <summary>
     /// Sets the size of this asteroid based on the size of its parent.
@@ -25,5 +26,6 @@ public class Asteroid : MonoBehaviour {
             throw new ArgumentOutOfRangeException(nameof(i_oParentAsteroid), i_oParentAsteroid, "Cannot set the size of a new asteroid from a small parent asteroid.");
         }
         this.Size = i_oParentAsteroid.Size - 1;
+        this.gameObject.transform.localScale -= Vector3.one * ScaleFactor;
     }
 }

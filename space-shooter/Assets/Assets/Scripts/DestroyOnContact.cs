@@ -41,7 +41,6 @@ public class DestroyOnContact : MonoBehaviour
 		if (other.tag == "Bullet")
         {
             // Spawn the new asteroids.
-            // TODO: Adjust the size of the new asteroids.
             Asteroid asteroidHit = gameObject.GetComponent<Asteroid>();
             if (asteroidHit.Size > AsteroidSizeClass.Small)
             {
