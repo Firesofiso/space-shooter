@@ -629,7 +629,7 @@ PlayerSettings:
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.1
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: ae9bbfa0-bb46-4069-8a9a-c2e14091452f
   projectName: space-shooter
   organizationId: firesofiso
