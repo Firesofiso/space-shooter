@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114797880357411638}
   - component: {fileID: 114047782129921042}
   - component: {fileID: 114143138291883080}
+  - component: {fileID: 114528258655709730}
   m_Layer: 0
   m_Name: Done_Asteroid 01
   m_TagString: Enemy
@@ -156,6 +157,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1e9865cd3f6e459f9b3fdd69ec66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114528258655709730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1319174847897738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08afcacf3ba359042b47ad742421d81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Size: 3
 --- !u!114 &114797880357411638
 MonoBehaviour:
   m_ObjectHideFlags: 1
