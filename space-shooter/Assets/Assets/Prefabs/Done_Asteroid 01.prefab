@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114047782129921042}
   - component: {fileID: 114143138291883080}
   - component: {fileID: 114528258655709730}
+  - component: {fileID: 114244125843913294}
   m_Layer: 0
   m_Name: Done_Asteroid 01
   m_TagString: Enemy
@@ -144,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aecd20bb7b41ba346b290bdf4d1c448f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 0.001
+  minSpeed: 0.01
   maxSpeed: 0.05
 --- !u!114 &114143138291883080
 MonoBehaviour:
@@ -157,6 +158,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de1e9865cd3f6e459f9b3fdd69ec66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114244125843913294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1319174847897738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4bf9a3e95194a46828da5f95c7f480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BufferFactor: 0.1
 --- !u!114 &114528258655709730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Size: 3
+  ScaleFactor: 0.3
 --- !u!114 &114797880357411638
 MonoBehaviour:
   m_ObjectHideFlags: 1
