@@ -1,6 +1,5 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
 
 public enum AsteroidSizeClass
@@ -10,10 +9,25 @@ public enum AsteroidSizeClass
     Large = 3
 }
 
-public class Asteroid : MonoBehaviour {
+public class Asteroid : MonoBehaviour
+{
 
     public AsteroidSizeClass Size = AsteroidSizeClass.Large;
     public float ScaleFactor = 0.3f;
+    private static readonly Dictionary<AsteroidSizeClass, float> _SpeedCoef = new Dictionary<AsteroidSizeClass, float>()
+    {
+        { AsteroidSizeClass.Large, 0.5f },
+        { AsteroidSizeClass.Medium, 1f},
+        { AsteroidSizeClass.Small, 1.5f}
+    };
+
+    public float SpeedCoef
+    {
+        get
+        {
+            return _SpeedCoef[Size];
+        }
+    }
 
     /// <summary>
     /// Sets the size of this asteroid based on the size of its parent.
