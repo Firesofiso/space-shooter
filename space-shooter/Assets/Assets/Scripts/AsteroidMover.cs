@@ -15,6 +15,8 @@ public class AsteroidMover : MonoBehaviour {
         target = new Vector3(Random.Range(-10, 11), Random.Range(-5, 6), 0);
         direction = target - transform.position;
         speed = Random.Range(minSpeed, maxSpeed);
+        var size = gameObject.GetComponent<Asteroid>().Size;
+        speed *= (float)AsteroidSizeClass.Medium / (float)size;
 	}
 	
 	// Update is called once per frame
