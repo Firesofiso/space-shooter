@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		startButton.onClick.AddListener(StartGame);
+		quitButton.onClick.AddListener(QuitGame);
 	}
 	
 	// Update is called once per frame
@@ -22,5 +23,9 @@ public class MainMenu : MonoBehaviour {
 
 	public void StartGame() {
 		SceneManager.LoadScene(1);
+	}
+
+	public void QuitGame() {
+		Application.Quit();
 	}
 }
