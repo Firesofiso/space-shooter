@@ -6,8 +6,9 @@ public class AsteroidSpawner : MonoBehaviour {
 
     public List<GameObject> asteroids = new List<GameObject>();
     public float spawnRate;
-    private int x = 10;
-    private int y = 6;
+    public float spawnAcceleration;
+    private const int x = 10;
+    private const int y = 6;
 
 	// Use this for initialization
 	void Start () {
@@ -52,9 +53,10 @@ public class AsteroidSpawner : MonoBehaviour {
             }
 
             Vector3 randPos = new Vector3(randX, randY, 0);
-            GameObject tempAsteroid = Instantiate(asteroids[0], randPos, Quaternion.identity, transform);
+            Instantiate(asteroids[0], randPos, Quaternion.identity, transform);
 
-            yield return new WaitForSeconds(spawnRate);
+            spawnRate += spawnAcceleration * 1 / spawnRate;
+            yield return new WaitForSeconds(1 / spawnRate);
         }
     }
 }
