@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Assets.Assets.Scripts;
 
 public class MainMenu : MonoBehaviour {
 
@@ -22,7 +23,7 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	public void StartGame() {
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene(SceneConstants.ShooterGame);
 	}
 
 	public void QuitGame() {
