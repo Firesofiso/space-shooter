@@ -34,8 +34,5 @@ public class Player : MonoBehaviour {
 			// Deactivate the shield whenever the player lets go of the shield button.
 			shield.SetActive(false);
 		}
-
-		// Shield should follow the ship
-		shield.transform.localPosition = transform.localPosition;
 	}
 }

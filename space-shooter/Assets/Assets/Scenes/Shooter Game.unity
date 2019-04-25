@@ -671,6 +671,26 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 54286970590141920, guid: dde2d085807926f40a9caae01ff51343,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54286970590141920, guid: dde2d085807926f40a9caae01ff51343,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114485642989938500, guid: dde2d085807926f40a9caae01ff51343,
+        type: 3}
+      propertyPath: tumble
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114570220948338092, guid: dde2d085807926f40a9caae01ff51343,
+        type: 3}
+      propertyPath: bulletContainer
+      value: 
+      objectReference: {fileID: 458088639}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dde2d085807926f40a9caae01ff51343, type: 3}
 --- !u!1 &1307457656
