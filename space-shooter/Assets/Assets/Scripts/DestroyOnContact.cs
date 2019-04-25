@@ -26,17 +26,20 @@ public class DestroyOnContact : MonoBehaviour
             return;
         }
 
-        if (other.tag == "Player")
-        {
-            // Here is where we reset the scene.
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-
 		if (other.tag == "Shield" && tag == "Enemy")
 		{
 			// Destroy the asteroid!
 			Destroy(gameObject);
 		}
+
+		if (other.tag == "Player")
+        {
+            // Here is where we reset the scene.
+			// Negate this if the player has their shield up.
+			if (!other.GetComponent<Player>().shield.activeInHierarchy) {
+				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			}
+        }
 
 		if (other.tag == "Bullet")
         {
