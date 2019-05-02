@@ -374,6 +374,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &482067365 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114570220948338092, guid: dde2d085807926f40a9caae01ff51343,
+    type: 3}
+  m_PrefabInstance: {fileID: 1252491341}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ea7c9416c862f4c965eaf0ee1c3639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &686032577
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +639,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreText: {fileID: 386766242}
+  shieldBarUI: {fileID: 2007158920}
+  player: {fileID: 482067365}
 --- !u!114 &1069429384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5680,7 +5694,7 @@ GameObject:
   - component: {fileID: 2007158921}
   - component: {fileID: 2007158920}
   m_Layer: 0
-  m_Name: Image
+  m_Name: ShieldBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
