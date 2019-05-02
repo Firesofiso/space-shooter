@@ -739,7 +739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4246192868501374, guid: dde2d085807926f40a9caae01ff51343, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4246192868501374, guid: dde2d085807926f40a9caae01ff51343, type: 3}
       propertyPath: m_LocalRotation.x
@@ -781,6 +781,20 @@ PrefabInstance:
       propertyPath: bulletContainer
       value: 
       objectReference: {fileID: 458088639}
+    - target: {fileID: 114570220948338092, guid: dde2d085807926f40a9caae01ff51343,
+        type: 3}
+      propertyPath: shieldDepletionRate
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114570220948338092, guid: dde2d085807926f40a9caae01ff51343,
+        type: 3}
+      propertyPath: shieldRegenerationRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782652607684524, guid: dde2d085807926f40a9caae01ff51343, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dde2d085807926f40a9caae01ff51343, type: 3}
 --- !u!1 &1359744478

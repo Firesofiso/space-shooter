@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public GameObject gun;
     public GameObject bullet, bulletContainer;
 	public GameObject shield;
+	public float shieldDepletionRate, shieldRegenerationRate;
 
 	[HideInInspector]
 	public float shieldValue = 100;
@@ -48,14 +49,14 @@ public class Player : MonoBehaviour {
 	public IEnumerator DepleteShield() {
 		while (true) {
 			shieldValue--;
-			yield return new WaitForSeconds(0.05f);
+			yield return new WaitForSeconds(1/shieldDepletionRate);
 		}
 	}
 
 	public IEnumerator RegenerateShield() {
 		while (shieldValue < 100 && !shield.activeInHierarchy) {
 			shieldValue++;
-			yield return new WaitForSeconds(0.25f);
+			yield return new WaitForSeconds(1/shieldRegenerationRate);
 		}
 	}
 }
