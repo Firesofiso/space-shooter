@@ -6,6 +6,7 @@ using UnityEngine;
 public class UIScript : MonoBehaviour {
 
 	public long score = 0;
+    public uint lives = 3;
 
 	public GameObject scoreText;
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Assets.Scripts;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,16 +8,11 @@ public class DestroyOnContact : MonoBehaviour
 {
 
     public const int asteroidSplitFactor = 3;
-	private UIScript scoreManager;
+	private UIScript headsUpDisplay;
 
 	// Use this for initialization
 	void Start () {
-		scoreManager = GameObject.Find("UI").GetComponent<UIScript>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		headsUpDisplay = GameObject.Find("UI").GetComponent<UIScript>();
 	}
 
     public void OnTriggerEnter(Collider other)
@@ -34,10 +30,19 @@ public class DestroyOnContact : MonoBehaviour
 
 		if (other.tag == "Player")
         {
-            // Here is where we reset the scene.
-			// Negate this if the player has their shield up.
+			// Negate damage if the player has their shield up.
 			if (!other.GetComponent<Player>().shield.activeInHierarchy) {
-				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                // lose a life
+                headsUpDisplay.lives--;
+                // If 0 lives, then go to game over scene
+                if (headsUpDisplay.lives <= 0)
+                {
+                    SceneManager.LoadScene(SceneConstants.GameOver);
+                }
+                // Otherwise reset player ship with temporary shield
+                var spawnPoint = GameObject.FindGameObjectWithTag("Respawn");
+                other.transform.SetPositionAndRotation(spawnPoint.transform.position, spawnPoint.transform.rotation);
+                other.GetComponent<Movement>().currentVelocity = Vector3.zero;
 			}
         }
 
@@ -55,7 +60,7 @@ public class DestroyOnContact : MonoBehaviour
             }
             // Destroy the bullet and the asteroid.
             Destroy(other.gameObject);
-			scoreManager.score += 5; // Score Points
+			headsUpDisplay.score += 5; // Score Points
 			Destroy(gameObject);
         }
     }

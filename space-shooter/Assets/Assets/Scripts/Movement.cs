@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour {
     public float rotationSpeed = 1;
     public float accelerationCoef = 1;
     public float maxSpeed = 10;
-    private Vector3 currentVelocity = new Vector2();
+    internal Vector3 currentVelocity = new Vector2();
 
     private ParticleSystem flame, jet;
 
